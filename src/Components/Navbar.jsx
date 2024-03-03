@@ -1,10 +1,10 @@
-
+import PropTypes from 'prop-types';
 
 const Navbar = ({setCategory}) => {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#"><span className="badge bg-light text-dark fs-4">NewsLand</span></a>
+                <a className="navbar-brand" href="#"><span className="badge bg-primary-subtle text-primary-emphasis fs-4">NewsLand</span></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
@@ -30,6 +30,10 @@ const Navbar = ({setCategory}) => {
             </div>
         </nav>
     )
+}
+
+Navbar.propTypes = {
+    setCategory: PropTypes.func,
 }
 
 export default Navbar

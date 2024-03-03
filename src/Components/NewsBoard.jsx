@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useState } from "react"
+import { useState } from "react";
 import NewsItem from "./NewsItem";
-
+import PropTypes from 'prop-types';
 
 const NewsBoard = ({category}) => {
 
@@ -14,13 +14,17 @@ const NewsBoard = ({category}) => {
     }, [category])
 
     return (
-        <div>
-            <h2 className="text-center">Latest <span className="badge bg-danger">News</span></h2>
+        <div className="bg-black">
+            <h2 className="text-center pt-3 text-light">Latest <span className="badge bg-danger text-capitalize">{category=='general'?'News':`${category} News`}</span></h2>
             {articles.map((news, index) => {
                 return <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}/>
             })}
         </div>
     )
+}
+
+NewsBoard.propTypes  = {
+    category: PropTypes.string.isRequired,
 }
 
 export default NewsBoard
