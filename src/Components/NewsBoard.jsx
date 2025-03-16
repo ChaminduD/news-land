@@ -15,15 +15,17 @@ const NewsBoard = ({category}) => {
 
     return (
         <div className="bg-black">
-            <h2 className="text-center pt-3 text-light">Latest <span className="badge bg-danger text-capitalize">{category=='general'?'News':`${category} News`}</span></h2>
-            {articles.map((news, index) => {
-                return <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}/>
-            })}
+            <h2 className="text-center text-light pt-4">Latest <span className="badge bg-danger text-capitalize">{category=='general'?'News':`${category} News`}</span></h2>
+            <div className="d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4 pb-4">
+                {articles.map((news, index) => {
+                    return <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}/>
+                })}
+            </div>
         </div>
     )
 }
 
-NewsBoard.propTypes  = {
+NewsBoard.propTypes = {
     category: PropTypes.string.isRequired,
 }
 
